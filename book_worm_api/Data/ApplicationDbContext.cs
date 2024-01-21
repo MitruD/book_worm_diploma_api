@@ -27,6 +27,7 @@ namespace book_worm_api.Data
                      ImageURL = "/images/great_gatsby.jpg",
                      Price = 12.99,
                      Genre = "Fiction",
+                     Author = "F. Scott Fitzgerald"
                  },
 
                  new Book
@@ -37,6 +38,7 @@ namespace book_worm_api.Data
                      ImageURL = "/images/to_kill_a_mockingbird.jpg",
                      Price = 10.99,
                      Genre = "Fiction",
+                     Author = "Harper Lee"
                  },
 
                  new Book
@@ -47,6 +49,7 @@ namespace book_worm_api.Data
                      ImageURL = "/images/1984.jpg",
                      Price = 14.99,
                      Genre = "Fiction",
+                     Author = "George Orwell"
                  },
 
                  new Book
@@ -57,6 +60,7 @@ namespace book_worm_api.Data
                      ImageURL = "/images/da_vinci_code.jpg",
                      Price = 15.99,
                      Genre = "Mystery",
+                     Author = "Dan Brown"
                  },
 
                  new Book
@@ -67,6 +71,7 @@ namespace book_worm_api.Data
                      ImageURL = "/images/gone_girl.jpg",
                      Price = 13.99,
                      Genre = "Mystery",
+                     Author = "Gillian Flynn"
                  },
 
                  new Book
@@ -77,6 +82,7 @@ namespace book_worm_api.Data
                      ImageURL = "/images/girl_with_dragon_tattoo.jpg",
                      Price = 16.99,
                      Genre = "Mystery",
+                     Author = "Stieg Larsson"
                  },
 
                  new Book
@@ -87,6 +93,7 @@ namespace book_worm_api.Data
                      ImageURL = "/images/pride_and_prejudice.jpg",
                      Price = 11.99,
                      Genre = "Romance",
+                     Author = "Jane Austen"
                  },
 
                  new Book
@@ -97,6 +104,7 @@ namespace book_worm_api.Data
                      ImageURL = "/images/the_notebook.jpg",
                      Price = 14.99,
                      Genre = "Romance",
+                     Author = "Nicholas Sparks"
                  },
 
                  new Book
@@ -107,6 +115,7 @@ namespace book_worm_api.Data
                      ImageURL = "/images/outlander.jpg",
                      Price = 17.99,
                      Genre = "Romance",
+                     Author = "Diana Gabaldon"
                  },
 
                  new Book
@@ -117,6 +126,7 @@ namespace book_worm_api.Data
                      ImageURL = "/images/dune.jpg",
                      Price = 18.99,
                      Genre = "Science Fiction",
+                     Author = "Frank Herbert"
                  },
 
                  new Book
@@ -127,6 +137,7 @@ namespace book_worm_api.Data
                      ImageURL = "/images/enders_game.jpg",
                      Price = 12.99,
                      Genre = "Science Fiction",
+                     Author = "Orson Scott Card"
                  },
 
                  new Book
@@ -137,6 +148,7 @@ namespace book_worm_api.Data
                      ImageURL = "/images/hitchhikers_guide.jpg",
                      Price = 15.99,
                      Genre = "Science Fiction",
+                     Author = "Douglas Adams"
                  },
 
                  new Book
@@ -147,6 +159,7 @@ namespace book_worm_api.Data
                      ImageURL = "/images/the_hobbit.jpg",
                      Price = 16.99,
                      Genre = "Fantasy",
+                     Author = "J.R.R. Tolkien"
                  },
 
                  new Book
@@ -157,6 +170,7 @@ namespace book_worm_api.Data
                      ImageURL = "/images/harry_potter.jpg",
                      Price = 19.99,
                      Genre = "Fantasy",
+                     Author = "J.K. Rowling"
                  },
 
                  new Book
@@ -167,6 +181,7 @@ namespace book_worm_api.Data
                      ImageURL = "/images/name_of_the_wind.jpg",
                      Price = 14.99,
                      Genre = "Fantasy",
+                     Author = "Patrick Rothfuss"
                  },
 
                  new Book
@@ -177,6 +192,7 @@ namespace book_worm_api.Data
                      ImageURL = "/images/sapiens.jpg",
                      Price = 21.99,
                      Genre = "Non-Fiction",
+                     Author = "Yuval Noah Harari"
                  },
 
                  new Book
@@ -187,6 +203,7 @@ namespace book_worm_api.Data
                      ImageURL = "/images/educated.jpg",
                      Price = 16.99,
                      Genre = "Non-Fiction",
+                     Author = "Tara Westover"
                  },
 
                  new Book
@@ -197,6 +214,7 @@ namespace book_worm_api.Data
                      ImageURL = "/images/henrietta_lacks.jpg",
                      Price = 18.99,
                      Genre = "Non-Fiction",
+                     Author = "Rebecca Skloot"
                  }
 
                 );
