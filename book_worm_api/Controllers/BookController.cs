@@ -2,6 +2,7 @@
 using book_worm_api.Models;
 using book_worm_api.Models.Dto;
 using book_worm_api.Utility;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -17,9 +18,12 @@ namespace book_worm_api.Controllers
     {
         private readonly ApplicationDbContext _db;
         private ApiResponse _response;
-        public BookController(ApplicationDbContext db)
+        private readonly IWebHostEnvironment _environment;
+
+        public BookController(IWebHostEnvironment environment, ApplicationDbContext db)
         {
             _db = db;
+            _environment = environment;
             _response = new ApiResponse();
         }
 
@@ -55,24 +59,38 @@ namespace book_worm_api.Controllers
         [HttpPost]
         public async Task<ActionResult<ApiResponse>> CreateBook([FromForm] BookCreateDTO bookCreateDTO)
         {
+            string wwwRootPath = _environment.WebRootPath;
+
             try
             {
                 if (ModelState.IsValid)
                 {
-                    if (bookCreateDTO.ImageURL == null)
+                    if (bookCreateDTO.File == null || bookCreateDTO.File.Length == 0)
                     {
                         _response.StatusCode = HttpStatusCode.BadRequest;
                         _response.IsSuccess = false;
                         return BadRequest();
                     }
-                    //string fileName = $"{Guid.NewGuid()}{Path.GetExtension(bookCreateDTO.File.FileName)}";
+                    string fileName = $"{Guid.NewGuid()}{Path.GetExtension(bookCreateDTO.File.FileName)}";
+                    string productPath = @"images";
+                    string finalPath = Path.Combine(wwwRootPath, productPath);
+
+                    if (!Directory.Exists(finalPath))
+                        Directory.CreateDirectory(finalPath);
+
+                    using (var fileStream = new FileStream(Path.Combine(finalPath, fileName), FileMode.Create))
+                    {
+                        bookCreateDTO.File.CopyTo(fileStream);
+                    }
+
                     Book bookToCreate = new()
                     {
                         Name = bookCreateDTO.Name,
                         Price = bookCreateDTO.Price,
                         Genre = bookCreateDTO.Genre,
                         Description = bookCreateDTO.Description,
-                        ImageURL = bookCreateDTO.ImageURL
+                        //ImageURL = bookCreateDTO.File.ToString() //TODO ToString is temporary
+                        ImageURL = @"\" + productPath + @"\" + fileName,
                     };
                     _db.Books.Add(bookToCreate);
                     _db.SaveChanges();

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using book_worm_api.Data;
 
@@ -11,9 +12,11 @@ using book_worm_api.Data;
 namespace book_worm_api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240122122118_AddImageURLPathValue")]
+    partial class AddImageURLPathValue
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -261,7 +264,7 @@ namespace book_worm_api.Migrations
                             Author = "F. Scott Fitzgerald",
                             Description = "A story of the fabulously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan.",
                             Genre = "Fiction",
-                            ImageURL = "\\images\\great_gatsby.jpg",
+                            ImageURL = "/images/great_gatsby.jpg",
                             Name = "The Great Gatsby",
                             Price = 12.99
                         },
@@ -271,7 +274,7 @@ namespace book_worm_api.Migrations
                             Author = "Harper Lee",
                             Description = "A novel set in the American South during the 1930s that deals with issues of racial injustice.",
                             Genre = "Fiction",
-                            ImageURL = "\\images\\to_kill_a_mockingbird.jpg",
+                            ImageURL = "/images/to_kill_a_mockingbird.jpg",
                             Name = "To Kill a Mockingbird",
                             Price = 10.99
                         },
@@ -281,7 +284,7 @@ namespace book_worm_api.Migrations
                             Author = "George Orwell",
                             Description = "A dystopian novel that explores the dangers of a totalitarian government.",
                             Genre = "Fiction",
-                            ImageURL = "\\images\\1984.jpg",
+                            ImageURL = "/images/1984.jpg",
                             Name = "1984",
                             Price = 14.99
                         },
@@ -291,7 +294,7 @@ namespace book_worm_api.Migrations
                             Author = "Dan Brown",
                             Description = "A gripping mystery that involves a conspiracy related to religious symbolism.",
                             Genre = "Mystery",
-                            ImageURL = "\\images\\da_vinci_code.jpg",
+                            ImageURL = "/images/da_vinci_code.jpg",
                             Name = "The Da Vinci Code",
                             Price = 15.99
                         },
@@ -301,7 +304,7 @@ namespace book_worm_api.Migrations
                             Author = "Gillian Flynn",
                             Description = "A psychological thriller about a husband and wife whose marriage takes a dark turn.",
                             Genre = "Mystery",
-                            ImageURL = "\\images\\gone_girl.jpg",
+                            ImageURL = "/images/gone_girl.jpg",
                             Name = "Gone Girl",
                             Price = 13.99
                         },
@@ -311,7 +314,7 @@ namespace book_worm_api.Migrations
                             Author = "Stieg Larsson",
                             Description = "A gripping mystery involving a journalist and a computer hacker investigating a wealthy family's dark secrets.",
                             Genre = "Mystery",
-                            ImageURL = "\\images\\girl_with_dragon_tattoo.jpg",
+                            ImageURL = "/images/girl_with_dragon_tattoo.jpg",
                             Name = "The Girl with the Dragon Tattoo",
                             Price = 16.989999999999998
                         },
@@ -321,7 +324,7 @@ namespace book_worm_api.Migrations
                             Author = "Jane Austen",
                             Description = "A classic romance novel that explores themes of love and social expectations.",
                             Genre = "Romance",
-                            ImageURL = "\\images\\pride_and_prejudice.jpg",
+                            ImageURL = "/images/pride_and_prejudice.jpg",
                             Name = "Pride and Prejudice",
                             Price = 11.99
                         },
@@ -331,7 +334,7 @@ namespace book_worm_api.Migrations
                             Author = "Nicholas Sparks",
                             Description = "A heartwarming love story about a young couple and the challenges they face.",
                             Genre = "Romance",
-                            ImageURL = "\\images\\the_notebook.jpg",
+                            ImageURL = "/images/the_notebook.jpg",
                             Name = "The Notebook",
                             Price = 14.99
                         },
@@ -341,7 +344,7 @@ namespace book_worm_api.Migrations
                             Author = "Diana Gabaldon",
                             Description = "A historical romance novel that involves time travel and adventure.",
                             Genre = "Romance",
-                            ImageURL = "\\images\\outlander.jpg",
+                            ImageURL = "/images/outlander.jpg",
                             Name = "Outlander",
                             Price = 17.989999999999998
                         },
@@ -351,7 +354,7 @@ namespace book_worm_api.Migrations
                             Author = "Frank Herbert",
                             Description = "An epic science fiction novel set in a distant future amidst a sprawling interstellar empire.",
                             Genre = "Science Fiction",
-                            ImageURL = "\\images\\dune.jpg",
+                            ImageURL = "/images/dune.jpg",
                             Name = "Dune",
                             Price = 18.989999999999998
                         },
@@ -361,7 +364,7 @@ namespace book_worm_api.Migrations
                             Author = "Orson Scott Card",
                             Description = "A military science fiction novel that follows a child prodigy's training in space warfare.",
                             Genre = "Science Fiction",
-                            ImageURL = "\\images\\enders_game.jpg",
+                            ImageURL = "/images/enders_game.jpg",
                             Name = "Ender's Game",
                             Price = 12.99
                         },
@@ -371,7 +374,7 @@ namespace book_worm_api.Migrations
                             Author = "Douglas Adams",
                             Description = "A comedic science fiction series that follows an unwitting human's adventures in space.",
                             Genre = "Science Fiction",
-                            ImageURL = "\\images\\hitchhikers_guide.jpg",
+                            ImageURL = "/images/hitchhikers_guide.jpg",
                             Name = "The Hitchhiker's Guide to the Galaxy",
                             Price = 15.99
                         },
@@ -381,7 +384,7 @@ namespace book_worm_api.Migrations
                             Author = "J.R.R. Tolkien",
                             Description = "A classic fantasy novel that follows the journey of Bilbo Baggins.",
                             Genre = "Fantasy",
-                            ImageURL = "\\images\\the_hobbit.jpg",
+                            ImageURL = "/images/the_hobbit.jpg",
                             Name = "The Hobbit",
                             Price = 16.989999999999998
                         },
@@ -391,7 +394,7 @@ namespace book_worm_api.Migrations
                             Author = "J.K. Rowling",
                             Description = "The first book in the Harry Potter series, introducing the world of magic and wizardry.",
                             Genre = "Fantasy",
-                            ImageURL = "\\images\\harry_potter.jpg",
+                            ImageURL = "/images/harry_potter.jpg",
                             Name = "Harry Potter and the Sorcerer's Stone",
                             Price = 19.989999999999998
                         },
@@ -401,7 +404,7 @@ namespace book_worm_api.Migrations
                             Author = "Patrick Rothfuss",
                             Description = "An epic fantasy novel that tells the life story of the protagonist Kvothe.",
                             Genre = "Fantasy",
-                            ImageURL = "\\images\\name_of_the_wind.jpg",
+                            ImageURL = "/images/name_of_the_wind.jpg",
                             Name = "The Name of the Wind",
                             Price = 14.99
                         },
@@ -411,7 +414,7 @@ namespace book_worm_api.Migrations
                             Author = "Yuval Noah Harari",
                             Description = "A thought-provoking exploration of the history and impact of Homo sapiens.",
                             Genre = "Non-Fiction",
-                            ImageURL = "\\images\\sapiens.jpg",
+                            ImageURL = "/images/sapiens.jpg",
                             Name = "Sapiens: A Brief History of Humankind",
                             Price = 21.989999999999998
                         },
@@ -421,7 +424,7 @@ namespace book_worm_api.Migrations
                             Author = "Tara Westover",
                             Description = "A memoir that recounts the author's journey from growing up in a strict household to pursuing education.",
                             Genre = "Non-Fiction",
-                            ImageURL = "\\images\\educated.jpg",
+                            ImageURL = "/images/educated.jpg",
                             Name = "Educated",
                             Price = 16.989999999999998
                         },
@@ -431,7 +434,7 @@ namespace book_worm_api.Migrations
                             Author = "Rebecca Skloot",
                             Description = "A biography that explores the life and impact of Henrietta Lacks and the HeLa cell line.",
                             Genre = "Non-Fiction",
-                            ImageURL = "\\images\\henrietta_lacks.jpg",
+                            ImageURL = "/images/henrietta_lacks.jpg",
                             Name = "The Immortal Life of Henrietta Lacks",
                             Price = 18.989999999999998
                         });
