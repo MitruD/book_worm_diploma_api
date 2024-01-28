@@ -18,12 +18,12 @@ namespace book_worm_api.Controllers
     {
         private readonly ApplicationDbContext _db;
         private ApiResponse _response;
-        private readonly IWebHostEnvironment _environment;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
-        public BookController(IWebHostEnvironment environment, ApplicationDbContext db)
+        public BookController(IWebHostEnvironment hostEnvironment, ApplicationDbContext db)
         {
             _db = db;
-            _environment = environment;
+            _hostEnvironment = hostEnvironment;
             _response = new ApiResponse();
         }
 
@@ -59,28 +59,16 @@ namespace book_worm_api.Controllers
         [HttpPost]
         public async Task<ActionResult<ApiResponse>> CreateBook([FromForm] BookCreateDTO bookCreateDTO)
         {
-            string wwwRootPath = _environment.WebRootPath;
 
             try
             {
                 if (ModelState.IsValid)
                 {
-                    if (bookCreateDTO.File == null || bookCreateDTO.File.Length == 0)
+                    if (bookCreateDTO.ImageFile == null || bookCreateDTO.ImageFile.Length == 0)
                     {
                         _response.StatusCode = HttpStatusCode.BadRequest;
                         _response.IsSuccess = false;
                         return BadRequest();
-                    }
-                    string fileName = $"{Guid.NewGuid()}{Path.GetExtension(bookCreateDTO.File.FileName)}";
-                    string productPath = @"images";
-                    string finalPath = Path.Combine(wwwRootPath, productPath);
-
-                    if (!Directory.Exists(finalPath))
-                        Directory.CreateDirectory(finalPath);
-
-                    using (var fileStream = new FileStream(Path.Combine(finalPath, fileName), FileMode.Create))
-                    {
-                        bookCreateDTO.File.CopyTo(fileStream);
                     }
 
                     Book bookToCreate = new()
@@ -89,8 +77,7 @@ namespace book_worm_api.Controllers
                         Price = bookCreateDTO.Price,
                         Genre = bookCreateDTO.Genre,
                         Description = bookCreateDTO.Description,
-                        //ImageURL = bookCreateDTO.File.ToString() //TODO ToString is temporary
-                        ImageURL = @"\" + productPath + @"\" + fileName,
+                        ImageURL = await SaveImage(bookCreateDTO.ImageFile),
                     };
                     _db.Books.Add(bookToCreate);
                     _db.SaveChanges();
@@ -126,7 +113,7 @@ namespace book_worm_api.Controllers
                         _response.IsSuccess = false;
                         return BadRequest();
                     }
-                    //Book bookFromDb = await _db.Books.FirstOrDefaultAsync(x=>x.Id==id);
+
                     Book bookFromDb = await _db.Books.FindAsync(id);
 
                     if (bookFromDb == null)
@@ -140,9 +127,7 @@ namespace book_worm_api.Controllers
                     bookFromDb.Price = bookUpdateDTO.Price;
                     bookFromDb.Genre = bookUpdateDTO.Genre;
                     bookFromDb.Description = bookUpdateDTO.Description;
-                    bookFromDb.ImageURL = bookUpdateDTO.ImageURL;
-
-                    //TODO: Adjust for Image local storage.
+                    bookFromDb.ImageURL = await SaveImage(bookUpdateDTO.ImageFile);
 
                     _db.Books.Update(bookFromDb);
                     _db.SaveChanges();
@@ -186,7 +171,7 @@ namespace book_worm_api.Controllers
                 }
 
                 //TODO: Adjust for local storage.
-             
+
                 int milliseconds = 2000;
                 Thread.Sleep(milliseconds);
 
@@ -203,5 +188,20 @@ namespace book_worm_api.Controllers
             }
             return _response;
         }
+
+        [NonAction]
+        public async Task<string> SaveImage(IFormFile imageFile)
+        {
+            string imageName = new String(Path.GetFileNameWithoutExtension(imageFile.FileName).Take(10).ToArray()).Replace(' ', '_');
+            imageName = imageName + DateTime.Now.ToString("yymmssfff") + Path.GetExtension(imageFile.FileName);
+            var imagePath = Path.Combine(_hostEnvironment.ContentRootPath, "Images", imageName);
+
+            using (var fileStream = new FileStream(imagePath, FileMode.Create))
+            {
+                await imageFile.CopyToAsync(fileStream);
+            }
+            return imagePath;
+        }
+
     }
 }

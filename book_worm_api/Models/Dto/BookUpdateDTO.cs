@@ -13,6 +13,6 @@ namespace book_worm_api.Models.Dto
         public string Genre { get; set; }
         [Range(1, int.MaxValue)]
         public double Price { get; set; }
-        public string ImageURL { get; set; }
+        public IFormFile ImageFile { get; set; }
     }
 }
