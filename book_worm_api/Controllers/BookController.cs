@@ -74,6 +74,7 @@ namespace book_worm_api.Controllers
                     Book bookToCreate = new()
                     {
                         Name = bookCreateDTO.Name,
+                        Author = bookCreateDTO.Author,
                         Price = bookCreateDTO.Price,
                         Genre = bookCreateDTO.Genre,
                         Description = bookCreateDTO.Description,
@@ -124,6 +125,7 @@ namespace book_worm_api.Controllers
                     }
 
                     bookFromDb.Name = bookUpdateDTO.Name;
+                    bookFromDb.Author = bookUpdateDTO.Author;
                     bookFromDb.Price = bookUpdateDTO.Price;
                     bookFromDb.Genre = bookUpdateDTO.Genre;
                     bookFromDb.Description = bookUpdateDTO.Description;
@@ -194,13 +196,13 @@ namespace book_worm_api.Controllers
         {
             string imageName = new String(Path.GetFileNameWithoutExtension(imageFile.FileName).Take(10).ToArray()).Replace(' ', '_');
             imageName = imageName + DateTime.Now.ToString("yymmssfff") + Path.GetExtension(imageFile.FileName);
-            var imagePath = Path.Combine(_hostEnvironment.ContentRootPath, "Images", imageName);
+            var imagePath = Path.Combine(_hostEnvironment.ContentRootPath, "wwwroot/images", imageName);
 
             using (var fileStream = new FileStream(imagePath, FileMode.Create))
             {
                 await imageFile.CopyToAsync(fileStream);
             }
-            return imagePath;
+            return imageName;
         }
 
     }

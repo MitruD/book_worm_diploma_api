@@ -94,6 +94,7 @@ if (app.Environment.IsDevelopment())
 }
 //app.UseCors(options => options.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader());
 app.UseHttpsRedirection();
+app.UseStaticFiles();
 app.UseCors(o => o.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 app.UseAuthentication();
 app.UseAuthorization();

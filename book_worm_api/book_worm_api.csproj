@@ -7,6 +7,32 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\Images\1984.jpg" />
+    <Content Remove="wwwroot\Images\2e4df8c9-ddd5-4c78-843e-7bec891cc3c5.png" />
+    <Content Remove="wwwroot\Images\Appetizer2244910147.jpg" />
+    <Content Remove="wwwroot\Images\da_vinci_code.jpg" />
+    <Content Remove="wwwroot\Images\dune.jpg" />
+    <Content Remove="wwwroot\Images\educated.jpg" />
+    <Content Remove="wwwroot\Images\enders_game.jpg" />
+    <Content Remove="wwwroot\Images\Frog_eccen240714599.png" />
+    <Content Remove="wwwroot\Images\Frog_eccen244034258.png" />
+    <Content Remove="wwwroot\Images\Frog_eccen245137580.png" />
+    <Content Remove="wwwroot\Images\girl_with_dragon_tattoo.jpg" />
+    <Content Remove="wwwroot\Images\gone_girl.jpeg" />
+    <Content Remove="wwwroot\Images\great_gatsby.jpg" />
+    <Content Remove="wwwroot\Images\harry_potter.jpg" />
+    <Content Remove="wwwroot\Images\henrietta_lacks.jpg" />
+    <Content Remove="wwwroot\Images\hitchhikers_guide.jpg" />
+    <Content Remove="wwwroot\Images\name_of_the_wind.jpg" />
+    <Content Remove="wwwroot\Images\outlander.jpg" />
+    <Content Remove="wwwroot\Images\pride_and_prejudice.jpg" />
+    <Content Remove="wwwroot\Images\sapiens.jpeg" />
+    <Content Remove="wwwroot\Images\the_hobbit.jpeg" />
+    <Content Remove="wwwroot\Images\the_notebook.jpg" />
+    <Content Remove="wwwroot\Images\to_kill_a_mockingbird.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.WebApi.Cors" Version="5.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.14" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.14" />
@@ -24,6 +50,32 @@
   <ItemGroup>
     <Folder Include="Migrations\" />
     <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Images\1984.jpg" />
+    <None Include="wwwroot\Images\2e4df8c9-ddd5-4c78-843e-7bec891cc3c5.png" />
+    <None Include="wwwroot\Images\Appetizer2244910147.jpg" />
+    <None Include="wwwroot\Images\da_vinci_code.jpg" />
+    <None Include="wwwroot\Images\dune.jpg" />
+    <None Include="wwwroot\Images\educated.jpg" />
+    <None Include="wwwroot\Images\enders_game.jpg" />
+    <None Include="wwwroot\Images\Frog_eccen240714599.png" />
+    <None Include="wwwroot\Images\Frog_eccen244034258.png" />
+    <None Include="wwwroot\Images\Frog_eccen245137580.png" />
+    <None Include="wwwroot\Images\girl_with_dragon_tattoo.jpg" />
+    <None Include="wwwroot\Images\gone_girl.jpeg" />
+    <None Include="wwwroot\Images\great_gatsby.jpg" />
+    <None Include="wwwroot\Images\harry_potter.jpg" />
+    <None Include="wwwroot\Images\henrietta_lacks.jpg" />
+    <None Include="wwwroot\Images\hitchhikers_guide.jpg" />
+    <None Include="wwwroot\Images\name_of_the_wind.jpg" />
+    <None Include="wwwroot\Images\outlander.jpg" />
+    <None Include="wwwroot\Images\pride_and_prejudice.jpg" />
+    <None Include="wwwroot\Images\sapiens.jpeg" />
+    <None Include="wwwroot\Images\the_hobbit.jpeg" />
+    <None Include="wwwroot\Images\the_notebook.jpg" />
+    <None Include="wwwroot\Images\to_kill_a_mockingbird.jpg" />
   </ItemGroup>
 
 </Project>
